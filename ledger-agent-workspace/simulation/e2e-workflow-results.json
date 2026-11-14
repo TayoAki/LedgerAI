@@ -1,0 +1,153 @@
+{
+  "at": "2026-11-14T04:15:30.275Z",
+  "method": "Actual TypeScript stripped and imported in isolated memory; copy-on-write actions; synthetic fixtures and simulated signed owner only. No live data, network delivery, AI accounting judgment or scheduler execution tested.",
+  "hashes": {
+    "model.ts": "39278f76032eb67a3d903ebf43e86a4865fa87e651a0902fe481757c7774d67b",
+    "workflow.ts": "3f96358e92a81d79411b707ef728df0e3580bf5f892f6b090ff47f3a55d5207b",
+    "store.ts": "057c5a939adaef694ee9fc505daa7d4cb70f6d1958e30b7a0ac1306e986af115"
+  },
+  "passed": 35,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Untrusted ingestion and activation are rejected without changing state",
+      "pass": true
+    },
+    {
+      "name": "Signup routes one Sales inquiry, creates no client/tasks and records no LAPS sale",
+      "pass": true
+    },
+    {
+      "name": "Inquiry claim and triage do not grant commercial acceptance",
+      "pass": true
+    },
+    {
+      "name": "Owner activation atomically records registry, terms and five scoped tasks",
+      "pass": true
+    },
+    {
+      "name": "Exact activation retry is idempotent; conflicting acceptance is rejected atomically",
+      "pass": true
+    },
+    {
+      "name": "Prerequisites cannot be claimed before their exact dependencies finish",
+      "pass": true
+    },
+    {
+      "name": "Routine intake completes on receiving-role acceptance without financial approval",
+      "pass": true
+    },
+    {
+      "name": "Missing originals block Sources even after receiving-role acceptance",
+      "pass": true
+    },
+    {
+      "name": "Generic document creation cannot bypass the engaged-client Coordinator claim",
+      "pass": true
+    },
+    {
+      "name": "Upload/reply ingestion is idempotent and does not imply source verification",
+      "pass": true
+    },
+    {
+      "name": "Verification requires claimed Document Coordinator scope; open receipts still block",
+      "pass": true
+    },
+    {
+      "name": "Accounting readiness retains judgment and exact Production acceptance",
+      "pass": true
+    },
+    {
+      "name": "Production correction needs fresh independent review and exact owner release",
+      "pass": true
+    },
+    {
+      "name": "Client Success must reference the exact released dependent Production packet",
+      "pass": true
+    },
+    {
+      "name": "Delivery outbox preserves approved original, authorization, receipt and authorship",
+      "pass": true
+    },
+    {
+      "name": "Portal delivery rejects missing routine portal authority",
+      "pass": true
+    },
+    {
+      "name": "Pending dispatch locks supersession and human/technical review changes",
+      "pass": true
+    },
+    {
+      "name": "Pending dispatch also locks task status changes",
+      "pass": true
+    },
+    {
+      "name": "Upstream rework cannot reuse an old routine artifact and accepted handoff",
+      "pass": true
+    },
+    {
+      "name": "Late original receipt invalidates downstream readiness before another publication",
+      "pass": true
+    },
+    {
+      "name": "A late receipt waits behind a pending delivery snapshot then reopens source review",
+      "pass": true
+    },
+    {
+      "name": "Idempotent task/document/deliverable keys reject conflicting scope and content",
+      "pass": true
+    },
+    {
+      "name": "Existing task keys reject changed dependencies and delivery policy",
+      "pass": true
+    },
+    {
+      "name": "Cross-client and cross-month dependencies are rejected",
+      "pass": true
+    },
+    {
+      "name": "Claim conflicts, revision checks and scope checks protect task and inbox work",
+      "pass": true
+    },
+    {
+      "name": "Expired claims deny mutations and can be reclaimed by another run",
+      "pass": true
+    },
+    {
+      "name": "Source file binding rejects wrong client, wrong month and missing original",
+      "pass": true
+    },
+    {
+      "name": "WIP cap is shared by inbox items and tasks, with release enabling next claim",
+      "pass": true
+    },
+    {
+      "name": "Recurring periods create exactly one new closed-month task graph",
+      "pass": true
+    },
+    {
+      "name": "Nonrecurring engagement does not automatically add new periods",
+      "pass": true
+    },
+    {
+      "name": "100 isolated clients route and deduplicate requests, originals and replies",
+      "pass": true
+    },
+    {
+      "name": "Full isolated journey finishes all five tasks with claims and separate role work",
+      "pass": true
+    },
+    {
+      "name": "Concurrent activation persists both engagements and five-task graphs through actual SQL store",
+      "pass": true
+    },
+    {
+      "name": "Concurrent SQL claims preserve exactly one task owner run",
+      "pass": true
+    },
+    {
+      "name": "Concurrent conflicting commercial acceptance commits one coherent engagement",
+      "pass": true
+    }
+  ]
+}

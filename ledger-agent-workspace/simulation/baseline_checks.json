@@ -1,0 +1,903 @@
+{
+  "generated_at": "2026-11-13T20:06:33.160Z",
+  "source_sha256": "3cdff22416c2ea1a045bd9088d616a81c09a8406e43f0c8a5158b975545c20f9",
+  "method": "Local in-memory calls to the current production model. No live mutations, network load test or accounting correctness test.",
+  "tests": [
+    {
+      "name": "Missing evidence blocked",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "AI cannot human-approve",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Task cannot finish without an approved artifact",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Stale task revision rejected",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Duplicate task creation is idempotent",
+      "expected": 1,
+      "observed": 1,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Duplicate deliverable submission is idempotent",
+      "expected": 1,
+      "observed": 1,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Pending handoff blocks completion",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Wrong declared receiving role is rejected",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Approved v1 cannot authorize unapproved v2",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P0"
+    },
+    {
+      "name": "Handoff records exact artifact ID and version",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P0"
+    },
+    {
+      "name": "Required receiver acceptance is enforced even before offer",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P0"
+    },
+    {
+      "name": "Client report completion needs delivery confirmation",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P0"
+    },
+    {
+      "name": "Task has accounting-period field",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "Task has a dependency field",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "Valid evidence reference preserves client boundary",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P0"
+    },
+    {
+      "name": "Daily completion attributed to original preparer after handoff",
+      "expected": 1,
+      "observed": 0,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "Duplicate reports with the same run key deduplicate",
+      "expected": 1,
+      "observed": 2,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "No report is distinguished from zero completed work",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Duplicate LAPS business events deduplicate",
+      "expected": 1,
+      "observed": 1,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Test LAPS events excluded",
+      "expected": 0,
+      "observed": 0,
+      "pass": true,
+      "priority": "P1"
+    },
+    {
+      "name": "Live event after same-ID test remains countable",
+      "expected": 1,
+      "observed": 0,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "Role summaries retain distinct blockers and evidence",
+      "expected": true,
+      "observed": false,
+      "pass": false,
+      "priority": "P1"
+    },
+    {
+      "name": "Payroll stays disabled",
+      "expected": true,
+      "observed": true,
+      "pass": true,
+      "priority": "P1"
+    }
+  ],
+  "pass": 12,
+  "fail": 11,
+  "load": [
+    {
+      "scenario": "100 clients × 5 monthly tasks plus 6 setup tasks",
+      "attempted": 500,
+      "accepted": 494,
+      "rejected": 6,
+      "total": 500,
+      "firstRejected": {
+        "client": 99,
+        "task": "Client delivery",
+        "error": "Workspace task limit reached. Export and archive before adding more."
+      }
+    }
+  ],
+  "payload": {
+    "taskOnlyBytes": 263604,
+    "with100WorkpapersBytes": 2290036,
+    "workpaperBodyBytes": 20000,
+    "firstAboveD1RowLimit": {
+      "deliverables": 86,
+      "bytes": 2006461
+    },
+    "activityRetained": 500
+  },
+  "approvalLoad": {
+    "clients": 100,
+    "blocked": 22,
+    "reviewReady": 78,
+    "ownerApprovalRequired": 78,
+    "completed": 0
+  },
+  "cohort": [
+    {
+      "client": "SIM-001",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "b79489bc-5548-4780-8f80-c19c95feac76"
+    },
+    {
+      "client": "SIM-002",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "f535cf82-f3f3-4f6d-8f54-4a68f0ccbf99"
+    },
+    {
+      "client": "SIM-003",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "3041c980-05ec-475c-a1d3-3e263e3f9d37"
+    },
+    {
+      "client": "SIM-004",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "7c2f8974-a9d7-439d-a986-4570fc48749b"
+    },
+    {
+      "client": "SIM-005",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "68d4785c-3a44-402f-a25a-e38ece734f11"
+    },
+    {
+      "client": "SIM-006",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "d3edc518-e2aa-4864-b18e-983a0d798405"
+    },
+    {
+      "client": "SIM-007",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "2496e642-c730-4209-8c5b-b8982991c2a7"
+    },
+    {
+      "client": "SIM-008",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "62580786-c329-4baa-9687-4a89423ce2dc"
+    },
+    {
+      "client": "SIM-009",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "b6ac4365-aad9-429f-b991-9e7cfed5695c"
+    },
+    {
+      "client": "SIM-010",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "83f1c836-08d8-41b7-9bf9-6fef17896129"
+    },
+    {
+      "client": "SIM-011",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "cb6640ae-3faf-4af6-89cd-64be0bf3ba05"
+    },
+    {
+      "client": "SIM-012",
+      "complexity": "Routine",
+      "blocked": true,
+      "blocker": "Missing statement",
+      "task_id": "bf6d8763-3904-4bd6-a165-46a57418d4db"
+    },
+    {
+      "client": "SIM-013",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "2e789a97-20f4-47aa-9750-25ed3e2204dd"
+    },
+    {
+      "client": "SIM-014",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "709db3be-f88f-49ef-8b49-2c568efe768c"
+    },
+    {
+      "client": "SIM-015",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "93994543-61d2-4d24-aa06-ec32c2183875"
+    },
+    {
+      "client": "SIM-016",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "5334b073-bcf5-4880-bbc3-26c63311e074"
+    },
+    {
+      "client": "SIM-017",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "0b19dcec-4149-41df-b164-3a98fc168388"
+    },
+    {
+      "client": "SIM-018",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "bd6d49fc-a32a-4e6b-b860-80cb1a5390fe"
+    },
+    {
+      "client": "SIM-019",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "2602d28e-6b45-475c-98cd-947e09e2aa0c"
+    },
+    {
+      "client": "SIM-020",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "9e5ce8fa-c1af-415a-94d2-5d5f01cc1ad2"
+    },
+    {
+      "client": "SIM-021",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "a3d0d37f-3bc1-4b91-a7a1-1249ecfa937f"
+    },
+    {
+      "client": "SIM-022",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "e46b2c4c-d0a1-4672-afb4-8639a38f4a88"
+    },
+    {
+      "client": "SIM-023",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "99bcac71-2c17-4694-9bbb-f53cb297ebc0"
+    },
+    {
+      "client": "SIM-024",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "a8862fb1-c124-46d6-b829-d5ece65d176f"
+    },
+    {
+      "client": "SIM-025",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "b48247af-d7b0-4c7f-b758-291c918cee72"
+    },
+    {
+      "client": "SIM-026",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "e2f27184-57fc-4801-b5c0-f6b59e2bc4de"
+    },
+    {
+      "client": "SIM-027",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "79745bb1-b505-4a8d-b4a1-8b28a14dc583"
+    },
+    {
+      "client": "SIM-028",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "2fdfff8f-0f42-44e7-9184-dd4fecdc1128"
+    },
+    {
+      "client": "SIM-029",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "8d1e1f37-a047-4ac8-b016-f6701a5c9d03"
+    },
+    {
+      "client": "SIM-030",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "d20a4e73-cc46-4424-af0b-31941aa8c059"
+    },
+    {
+      "client": "SIM-031",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "72b54660-699d-4f13-890b-fa04ebf9ccac"
+    },
+    {
+      "client": "SIM-032",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "abc7bb8c-41f3-4778-abf4-10401d788e92"
+    },
+    {
+      "client": "SIM-033",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "bb9ec5fa-e129-4fe7-a4fe-d09bcc6b228e"
+    },
+    {
+      "client": "SIM-034",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "f4e2d2e8-3c69-4edf-8c62-d4cec1705a8f"
+    },
+    {
+      "client": "SIM-035",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "432ee63d-9f20-48a8-bf02-f1b69ea15e6c"
+    },
+    {
+      "client": "SIM-036",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "50ca75d1-c816-459e-9d0b-d129e646606b"
+    },
+    {
+      "client": "SIM-037",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "3f9c05f7-2d3c-461d-aac1-0845b2b8b027"
+    },
+    {
+      "client": "SIM-038",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "fe63fafd-1ea2-4036-afb3-9cd881d5136a"
+    },
+    {
+      "client": "SIM-039",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "1be746c4-3a93-4cd8-8a92-d60629a0df83"
+    },
+    {
+      "client": "SIM-040",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "42fcefe5-f93e-44e9-9a30-b054b8e45cda"
+    },
+    {
+      "client": "SIM-041",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "ada9096a-0951-417c-8250-e30ac1fa81bf"
+    },
+    {
+      "client": "SIM-042",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "e5ac84ee-513a-43c4-ae19-97578ff79dcd"
+    },
+    {
+      "client": "SIM-043",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "ebea2ff6-e395-4bdc-b5b6-11a808a8605e"
+    },
+    {
+      "client": "SIM-044",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "57279124-1e99-459c-a2dd-4c1da5d336f3"
+    },
+    {
+      "client": "SIM-045",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "771d7fe9-7d5d-42a1-b5f6-acb938c0386e"
+    },
+    {
+      "client": "SIM-046",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "581fa1c8-a1a6-4a26-abe5-230e136aac8e"
+    },
+    {
+      "client": "SIM-047",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "cfaf0ea4-906c-4544-ad7b-bef578d8e350"
+    },
+    {
+      "client": "SIM-048",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "d1756fe4-8b2b-4cd5-8ac7-b7db2090a570"
+    },
+    {
+      "client": "SIM-049",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "f356b9df-b621-4c74-9e0a-0461d1a52265"
+    },
+    {
+      "client": "SIM-050",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "5016185b-e257-420a-b91e-1eaff146463b"
+    },
+    {
+      "client": "SIM-051",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "ecfadb61-b291-44f2-b4a5-3dbbaed0028e"
+    },
+    {
+      "client": "SIM-052",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "276d7e6e-7e62-44f6-808d-bd47828c7951"
+    },
+    {
+      "client": "SIM-053",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "36bface6-170e-4019-9f81-7a96e7123458"
+    },
+    {
+      "client": "SIM-054",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "af5d11df-7a27-4b3d-82e4-050394d5ee49"
+    },
+    {
+      "client": "SIM-055",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "469c5f72-655e-4f5d-a2a0-e228345547f1"
+    },
+    {
+      "client": "SIM-056",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "71666f38-3cba-42ff-aded-731584b60940"
+    },
+    {
+      "client": "SIM-057",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "dee3e4b6-ef9e-4654-9273-6bc94dda4c51"
+    },
+    {
+      "client": "SIM-058",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "7522af7c-c4d6-41bd-a67e-32ffb4f39682"
+    },
+    {
+      "client": "SIM-059",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "f8216c4a-7119-43c6-a1a4-3f386aedae66"
+    },
+    {
+      "client": "SIM-060",
+      "complexity": "Routine",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "81140c47-262d-410f-b865-b5fc5640b34a"
+    },
+    {
+      "client": "SIM-061",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "38959413-e65e-4001-afe3-66b464025c43"
+    },
+    {
+      "client": "SIM-062",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "0a37f1f3-ae12-4497-853c-11d6fc9f8605"
+    },
+    {
+      "client": "SIM-063",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "3502beb6-37dd-4ac7-82c9-8e9d248ee09c"
+    },
+    {
+      "client": "SIM-064",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "642375d1-4701-4086-929b-e24fbce1b068"
+    },
+    {
+      "client": "SIM-065",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "a1d4ee49-e06d-45a5-8666-b76990b465c9"
+    },
+    {
+      "client": "SIM-066",
+      "complexity": "Complex",
+      "blocked": true,
+      "blocker": "Broken accountant access",
+      "task_id": "13f5ac75-f571-4129-98c3-1189994fd3a8"
+    },
+    {
+      "client": "SIM-067",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "b0115e2a-adf5-4417-a22f-595de46ce002"
+    },
+    {
+      "client": "SIM-068",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "05d5d8f5-ce1c-4136-a3bc-72a3e400f3cd"
+    },
+    {
+      "client": "SIM-069",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "8cd32851-8130-47b4-8db1-479faec551c3"
+    },
+    {
+      "client": "SIM-070",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "e6ae3fa4-6738-4705-907a-1e6e27cea4d4"
+    },
+    {
+      "client": "SIM-071",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "b0a19ad7-fbee-477b-92ba-34bc6ba64a18"
+    },
+    {
+      "client": "SIM-072",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "8b1bda12-42db-46b4-9ee0-0f1a61f2ee06"
+    },
+    {
+      "client": "SIM-073",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "05c5f4a1-6e4f-42b0-8edf-e7a3e5ca4ab9"
+    },
+    {
+      "client": "SIM-074",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "a8cacb84-d63c-4af4-8b93-594d41adedec"
+    },
+    {
+      "client": "SIM-075",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "2d4e749d-6d24-4b35-97f5-494cd26029b1"
+    },
+    {
+      "client": "SIM-076",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "695a6c92-23fa-4913-ac9e-05c8e02937ab"
+    },
+    {
+      "client": "SIM-077",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "68e86971-fd1e-4565-a67f-62d53244d949"
+    },
+    {
+      "client": "SIM-078",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "86b523f6-3fe6-42f9-b3a7-a5e800fa5fd6"
+    },
+    {
+      "client": "SIM-079",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "a850173e-7244-4423-8e3b-9a3cfee2b31b"
+    },
+    {
+      "client": "SIM-080",
+      "complexity": "Complex",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "d9e3c9b8-215b-4ede-b9fa-cee0b2e17a1e"
+    },
+    {
+      "client": "SIM-081",
+      "complexity": "New onboarding",
+      "blocked": true,
+      "blocker": "Unresolved opening balance",
+      "task_id": "8f4a0cb5-435a-411a-94af-6e2bdad5f6cc"
+    },
+    {
+      "client": "SIM-082",
+      "complexity": "New onboarding",
+      "blocked": true,
+      "blocker": "Unresolved opening balance",
+      "task_id": "b654ebb2-14b5-4f5e-a9fc-4aee4dcacce8"
+    },
+    {
+      "client": "SIM-083",
+      "complexity": "New onboarding",
+      "blocked": true,
+      "blocker": "Unresolved opening balance",
+      "task_id": "18e1d7b9-e139-4510-a64e-69e2cdad5e7d"
+    },
+    {
+      "client": "SIM-084",
+      "complexity": "New onboarding",
+      "blocked": true,
+      "blocker": "Unresolved opening balance",
+      "task_id": "ae233f86-c8eb-40a7-9e5f-469c22e04898"
+    },
+    {
+      "client": "SIM-085",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "21f876a5-ccc2-4200-a8d8-be561a8c0a0e"
+    },
+    {
+      "client": "SIM-086",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "31da9696-6cc1-4612-ae81-27b81336f81b"
+    },
+    {
+      "client": "SIM-087",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "ad5d6777-c9a7-45ee-a8a9-682be581b3ed"
+    },
+    {
+      "client": "SIM-088",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "679bebce-d616-4b05-8094-5b4add6ff587"
+    },
+    {
+      "client": "SIM-089",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "0576c5cb-7555-44de-94c7-20b754b90962"
+    },
+    {
+      "client": "SIM-090",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "59978421-b31d-48a3-beb9-e456503126dd"
+    },
+    {
+      "client": "SIM-091",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "d8be8947-efe5-4ec9-b09e-eb48b6638a85"
+    },
+    {
+      "client": "SIM-092",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "9bf7658a-3223-4ed5-94e2-505154e0f69e"
+    },
+    {
+      "client": "SIM-093",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "ea5e7483-b1fc-46d3-bc06-a9a406aae018"
+    },
+    {
+      "client": "SIM-094",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "1c24b742-a15e-4b55-9acf-63cbf8e7a7e4"
+    },
+    {
+      "client": "SIM-095",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "85207047-fc8e-4c67-b197-9b9e331536b3"
+    },
+    {
+      "client": "SIM-096",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "3df56564-a6b8-470f-8634-076dca6be935"
+    },
+    {
+      "client": "SIM-097",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "d1ce61f0-44f6-4854-b794-a758c71350b6"
+    },
+    {
+      "client": "SIM-098",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "89d91bd6-c290-4ba3-9455-1720dc17062e"
+    },
+    {
+      "client": "SIM-099",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "5d522306-f330-4ead-9668-3ce797a35b0d"
+    },
+    {
+      "client": "SIM-100",
+      "complexity": "New onboarding",
+      "blocked": false,
+      "blocker": "",
+      "task_id": "fbc005f8-66e8-41b0-9035-8496f91654ec"
+    }
+  ]
+}

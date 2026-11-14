@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1794614871880,
+      "tag": "0000_condemned_swordsman",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1794628360745,
+      "tag": "0001_whole_retro_girl",
+      "breakpoints": true
+    }
+  ]
+}

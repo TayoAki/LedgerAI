@@ -1,0 +1,78 @@
+{
+  "method": "Actual production portal, bridge, model and durable store in isolated SQLite/object storage. Synthetic role passes and explicit fixture human commercial/financial decisions. No hosted data.",
+  "passed": 18,
+  "checks": [
+    {
+      "name": "Signup creates Sales inquiry without client registration",
+      "pass": true
+    },
+    {
+      "name": "Agent cannot activate engagement",
+      "pass": true
+    },
+    {
+      "name": "Accepted engagement creates one client and five scoped tasks",
+      "pass": true
+    },
+    {
+      "name": "Activation retries preserve one engagement",
+      "pass": true
+    },
+    {
+      "name": "Agent source request reaches client portal",
+      "pass": true
+    },
+    {
+      "name": "Upload and reply route to independent source receipt items",
+      "pass": true
+    },
+    {
+      "name": "Original CSV available for actual inspection",
+      "pass": true
+    },
+    {
+      "name": "Routine handoffs complete without financial approval",
+      "pass": true
+    },
+    {
+      "name": "Technical pass and handoff do not grant human release",
+      "pass": true
+    },
+    {
+      "name": "Uncertain response keeps durable Pending dispatch after remote publication",
+      "pass": true
+    },
+    {
+      "name": "Uncertain dispatch locks exact version",
+      "pass": true
+    },
+    {
+      "name": "Scheduled reconciliation recovers real receipt",
+      "pass": true
+    },
+    {
+      "name": "Full five-stage journey finishes through actual gates",
+      "pass": true
+    },
+    {
+      "name": "Delivery preserves original Production authorship and one publication",
+      "pass": true
+    },
+    {
+      "name": "Client-originated request reaches Client Success",
+      "pass": true
+    },
+    {
+      "name": "Client sees agent reply and resolved request",
+      "pass": true
+    },
+    {
+      "name": "100 submitted intakes sync across pagination with no invented engagements",
+      "pass": true
+    },
+    {
+      "name": "No LAPS events fabricated",
+      "pass": true
+    }
+  ]
+}

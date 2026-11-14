@@ -1,0 +1,4 @@
+import {workspaceWithPortal,executeAction} from '../../../lib/portal-bridge';
+import { readState, writeAction } from '../../../lib/store';
+export async function GET(){try{return Response.json(await workspaceWithPortal(),{headers:{'Cache-Control':'no-store'}});}catch(e:any){return Response.json({error:e.message},{status:503});}}
+export async function POST(req:Request){try{const origin=req.headers.get('origin');if(origin&&origin!==new URL(req.url).origin)return Response.json({error:'Invalid origin'},{status:403});const text=await req.text();if(text.length>150000)throw Error('Request too large.');const a=JSON.parse(text);return Response.json(await executeAction(a,origin===new URL(req.url).origin?(req.headers.get('oai-authenticated-user-id')||false):false));}catch(e:any){return Response.json({error:e.message},{status:400});}}

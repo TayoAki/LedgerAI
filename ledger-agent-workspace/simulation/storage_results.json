@@ -1,0 +1,39 @@
+{
+  "method": "Production store code with real SQLite and a D1-compatible adapter; validates SQL, atomic batch behavior, CAS and migration logic. This is not a Cloudflare network load test.",
+  "checks": [
+    {
+      "name": "Reads legacy tasks and runs before migration",
+      "pass": true
+    },
+    {
+      "name": "Preserves existing six tasks and run after normalized write",
+      "pass": true
+    },
+    {
+      "name": "Keeps immutable legacy backup",
+      "pass": true
+    },
+    {
+      "name": "Concurrent CAS retry preserves both writers",
+      "pass": true
+    },
+    {
+      "name": "Failed batch rolls back metadata and data",
+      "pass": true
+    },
+    {
+      "name": "SQL persistence holds 100 clients, 506 tasks and 100 workpapers",
+      "pass": true
+    },
+    {
+      "name": "No oversized row for combined payload above 2MB",
+      "pass": true
+    }
+  ],
+  "pass": 7,
+  "counts": {
+    "records": 1413,
+    "total": 2452531,
+    "largest": 20352
+  }
+}

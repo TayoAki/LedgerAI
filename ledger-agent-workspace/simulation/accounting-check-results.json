@@ -1,0 +1,78 @@
+{
+  "passed": 18,
+  "method": "Actual Ledger accounting gateway and model with isolated observed-read fixtures; no provider calls or real credentials.",
+  "checks": [
+    {
+      "name": "Report blocked before observed company confirmation",
+      "pass": true
+    },
+    {
+      "name": "Wrong-client read blocked",
+      "pass": true
+    },
+    {
+      "name": "Private reads use fixed portal endpoint without redirects",
+      "pass": true
+    },
+    {
+      "name": "Observed company response stored without inferred verification",
+      "pass": true
+    },
+    {
+      "name": "Company inspection routes to Accounting Lead",
+      "pass": true
+    },
+    {
+      "name": "Wrong company cannot be confirmed",
+      "pass": true
+    },
+    {
+      "name": "Inspection confirmation is exact connection bound",
+      "pass": true
+    },
+    {
+      "name": "Private reads use fixed portal endpoint without redirects",
+      "pass": true
+    },
+    {
+      "name": "Report request pins confirmed connection IDs",
+      "pass": true
+    },
+    {
+      "name": "Report is retained as inspectable original with hash",
+      "pass": true
+    },
+    {
+      "name": "Private reads use fixed portal endpoint without redirects",
+      "pass": true
+    },
+    {
+      "name": "Same report data with new provider log does not duplicate source work",
+      "pass": true
+    },
+    {
+      "name": "Private reads use fixed portal endpoint without redirects",
+      "pass": true
+    },
+    {
+      "name": "Unexpected connection response rejected",
+      "pass": true
+    },
+    {
+      "name": "Verified source links exact observed read/hash",
+      "pass": true
+    },
+    {
+      "name": "Private reads use fixed portal endpoint without redirects",
+      "pass": true
+    },
+    {
+      "name": "Failed provider execution never records a verified source",
+      "pass": true
+    },
+    {
+      "name": "Company confirmation grants no financial approval",
+      "pass": true
+    }
+  ]
+}

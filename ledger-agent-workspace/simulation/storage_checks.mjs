@@ -1,0 +1,33 @@
+import {DatabaseSync} from 'node:sqlite';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {stripTypeScriptTypes} from 'node:module';
+const moduleURL=(code)=>'data:text/javascript;base64,'+Buffer.from(stripTypeScriptTypes(code)).toString('base64');
+const workflowURL=moduleURL(readFileSync('lib/workflow.ts','utf8'));
+const modelURL=moduleURL(readFileSync('lib/model.ts','utf8').replace("'./workflow'",JSON.stringify(workflowURL)));
+const {initialState}=await import(modelURL);
+const db=new DatabaseSync(':memory:');
+db.exec(readFileSync('drizzle/0000_curly_living_mummy.sql','utf8'));
+db.exec(readFileSync('drizzle/0001_fat_centennial.sql','utf8'));
+const old=initialState();old.runs.push({run_id:'existing-run',role:'operations',summary:'Existing work',at:new Date().toISOString()});db.prepare('INSERT INTO workspace(id,payload,revision) VALUES (?,?,?)').run('main',JSON.stringify(old),2);
+let fault=false;
+const prepare=sql=>({sql,args:[],bind(...args){this.args=args;return this},async first(){return db.prepare(this.sql).get(...this.args)}});
+const DB={prepare,async batch(q){db.exec('BEGIN');try{const out=q.map((x,i)=>{if(fault&&i===1)throw Error('Injected write failure');if(x.sql.startsWith('SELECT'))return {results:db.prepare(x.sql).all(...x.args)};return {meta:{changes:db.prepare(x.sql).run(...x.args).changes}}});db.exec('COMMIT');return out;}catch(e){db.exec('ROLLBACK');throw e;}}};
+globalThis.__testEnv={DB};
+let code=readFileSync('lib/store.ts','utf8').replace("import { env } from 'cloudflare:workers';","const env=globalThis.__testEnv;").replace("from './model'","from '"+modelURL+"'");
+const {readState,writeAction}=await import('data:text/javascript;base64,'+Buffer.from(stripTypeScriptTypes(code)).toString('base64'));
+const checks=[];const check=(name,ok)=>{checks.push({name,pass:!!ok});if(!ok)throw Error(name)};
+check('Reads legacy tasks and runs before migration',(await readState()).runs[0].run_id==='existing-run');
+await writeAction({action:'record_run',run_id:'migration',role:'operations',summary:'Migration check'});
+let s=await readState();check('Preserves existing six tasks and run after normalized write',s.tasks.length===6&&s.runs.length===2);
+check('Keeps immutable legacy backup',JSON.parse(db.prepare('SELECT payload FROM workspace').get().payload).runs[0].run_id==='existing-run');
+await Promise.all([writeAction({action:'record_run',run_id:'concurrent-1',role:'operations',summary:'Concurrent A'}),writeAction({action:'record_run',run_id:'concurrent-2',role:'sales',summary:'Concurrent B'})]);
+s=await readState();check('Concurrent CAS retry preserves both writers',s.runs.some(r=>r.run_id==='concurrent-1')&&s.runs.some(r=>r.run_id==='concurrent-2'));
+const revision=s.version;fault=true;try{await writeAction({action:'record_run',run_id:'fault',role:'operations',summary:'Must roll back'});}catch{}fault=false;s=await readState();check('Failed batch rolls back metadata and data',s.version===revision&&!s.runs.some(r=>r.run_id==='fault'));
+for(let i=1;i<=100;i++){
+ await writeAction({action:'create_client',client_id:'SIM-'+i,name:'Fictional '+i,company_id:'COMP-'+i,service_scope:'Monthly bookkeeping'});
+ for(let k=0;k<5;k++)await writeAction({action:'create_task',client_id:'SIM-'+i,accounting_period:'2026-10',title:'Task '+k,owner:'production',stage:'Fulfilment',acceptance:'Evidence',idempotency_key:`${i}:${k}`});
+ s=await readState();const t=s.tasks.find(t=>t.key===`${i}:0`);await writeAction({action:'submit_deliverable',task_id:t.id,client_id:t.client_id,accounting_period:t.accounting_period,title:'Synthetic paper',body:'W'.repeat(20000)},true);
+}
+s=await readState();check('SQL persistence holds 100 clients, 506 tasks and 100 workpapers',s.clients.length===100&&s.tasks.length===506&&s.deliverables.length===100);
+const counts=db.prepare('SELECT COUNT(*) AS records,SUM(length(payload)) AS total,MAX(length(payload)) AS largest FROM workspace_records').get();check('No oversized row for combined payload above 2MB',counts.total>2000000&&counts.largest<500000);
+const out={method:'Production store code with real SQLite and a D1-compatible adapter; validates SQL, atomic batch behavior, CAS and migration logic. This is not a Cloudflare network load test.',checks,pass:checks.length,counts};writeFileSync('simulation/storage_results.json',JSON.stringify(out,null,2));console.log(JSON.stringify(out,null,2));

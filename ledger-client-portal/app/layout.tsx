@@ -1,0 +1,1 @@
+import type {Metadata} from 'next';import './globals.css';export const metadata:Metadata={title:'Ledger — Client Portal',description:'Your business, your books, one clear place to work together.'};export default function Layout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}

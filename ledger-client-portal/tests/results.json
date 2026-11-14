@@ -1,0 +1,458 @@
+{
+  "method": "Production route and cross-app workflow checks in isolated SQLite/object storage. No live client records or provider calls.",
+  "passed": 113,
+  "checks": [
+    {
+      "name": "Anonymous account read denied",
+      "pass": true
+    },
+    {
+      "name": "Unaccepted account cannot create work requests",
+      "pass": true
+    },
+    {
+      "name": "Active identity fields cannot change",
+      "pass": true
+    },
+    {
+      "name": "Active starting period cannot change",
+      "pass": true
+    },
+    {
+      "name": "Active scope cannot change",
+      "pass": true
+    },
+    {
+      "name": "Active phone remains editable",
+      "pass": true
+    },
+    {
+      "name": "Valid client request saved",
+      "pass": true
+    },
+    {
+      "name": "Identical client request retry accepted",
+      "pass": true
+    },
+    {
+      "name": "Changed request key content rejected",
+      "pass": true
+    },
+    {
+      "name": "Retry leaves one client request",
+      "pass": true
+    },
+    {
+      "name": "Another client cannot reply",
+      "pass": true
+    },
+    {
+      "name": "Same message key cannot change body",
+      "pass": true
+    },
+    {
+      "name": "Every successful reply retained once",
+      "pass": true
+    },
+    {
+      "name": "Replies never rewrite client instructions",
+      "pass": true
+    },
+    {
+      "name": "Team message retry deduplicated",
+      "pass": true
+    },
+    {
+      "name": "Team message conflicting retry rejected",
+      "pass": true
+    },
+    {
+      "name": "Bridge cannot forge client sender",
+      "pass": true
+    },
+    {
+      "name": "Team routing updates preserve original instructions and month",
+      "pass": true
+    },
+    {
+      "name": "Bridge cannot invent a client service request",
+      "pass": true
+    },
+    {
+      "name": "report first store succeeds",
+      "pass": true
+    },
+    {
+      "name": "report exact retry succeeds",
+      "pass": true
+    },
+    {
+      "name": "report conflicting retry rejected",
+      "pass": true
+    },
+    {
+      "name": "engagement first store succeeds",
+      "pass": true
+    },
+    {
+      "name": "engagement exact retry succeeds",
+      "pass": true
+    },
+    {
+      "name": "engagement conflicting retry rejected",
+      "pass": true
+    },
+    {
+      "name": "note first store succeeds",
+      "pass": true
+    },
+    {
+      "name": "note exact retry succeeds",
+      "pass": true
+    },
+    {
+      "name": "note conflicting retry rejected",
+      "pass": true
+    },
+    {
+      "name": "Database prevents message history rewrite",
+      "pass": true
+    },
+    {
+      "name": "Source request instructions preserved",
+      "pass": true
+    },
+    {
+      "name": "Cross-account request attachment rejected",
+      "pass": true
+    },
+    {
+      "name": "Wrong-month request attachment rejected",
+      "pass": true
+    },
+    {
+      "name": "Concurrent duplicate uploads share one original",
+      "pass": true
+    },
+    {
+      "name": "Ready original is attached to exact request",
+      "pass": true
+    },
+    {
+      "name": "Another account cannot download original",
+      "pass": true
+    },
+    {
+      "name": "Uploaded original cannot silently move between requests",
+      "pass": true
+    },
+    {
+      "name": "Unconfigured connection is explicit",
+      "pass": true
+    },
+    {
+      "name": "Unconfigured connection does not initiate external request",
+      "pass": true
+    },
+    {
+      "name": "Provider calls are fixed-origin, no Origin and no redirects",
+      "pass": true
+    },
+    {
+      "name": "Connection derives identity and callback server-side",
+      "pass": true
+    },
+    {
+      "name": "Connection initiation is not verification",
+      "pass": true
+    },
+    {
+      "name": "Pending connection retries reuse original hosted link",
+      "pass": true
+    },
+    {
+      "name": "Provider calls are fixed-origin, no Origin and no redirects",
+      "pass": true
+    },
+    {
+      "name": "Different upstream application identity blocked",
+      "pass": true
+    },
+    {
+      "name": "Provider calls are fixed-origin, no Origin and no redirects",
+      "pass": true
+    },
+    {
+      "name": "ACTIVE remains distinct from company verified",
+      "pass": true
+    },
+    {
+      "name": "No generic provider execution action",
+      "pass": true
+    },
+    {
+      "name": "Accounting reads require private bridge authorization",
+      "pass": true
+    },
+    {
+      "name": "Accounting writes are not allowlisted",
+      "pass": true
+    },
+    {
+      "name": "Accounting reads require a valid month",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Authenticated schema is returned without execution",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Required arguments follow fetched schema",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Undeclared arguments rejected",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Wrong argument types rejected",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Read refuses mismatched connection ownership",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Accounting calls keep provider origin and reject redirects",
+      "pass": true
+    },
+    {
+      "name": "Company read pins account, user and tested version",
+      "pass": true
+    },
+    {
+      "name": "Observed company read returns evidence but never self-verifies",
+      "pass": true
+    },
+    {
+      "name": "Safe sync projection distinguishes auth from company verification",
+      "pass": true
+    },
+    {
+      "name": "Official report schema allowlisted: QUICKBOOKS_GET_BALANCE_SHEET_REPORT",
+      "pass": true
+    },
+    {
+      "name": "Official report schema allowlisted: QUICKBOOKS_GET_GENERAL_LEDGER_REPORT",
+      "pass": true
+    },
+    {
+      "name": "Official report schema allowlisted: QUICKBOOKS_GET_PROFIT_AND_LOSS_REPORT",
+      "pass": true
+    },
+    {
+      "name": "Official report schema allowlisted: QUICKBOOKS_GET_REPORT_TRIAL_BALANCE",
+      "pass": true
+    },
+    {
+      "name": "Official report schema allowlisted: QUICKBOOKS_GET_TRANSACTION_LIST_REPORT",
+      "pass": true
+    },
+    {
+      "name": "Reports require independently confirmed connection IDs",
+      "pass": true
+    },
+    {
+      "name": "Reconnected company cannot reuse prior confirmation",
+      "pass": true
+    },
+    {
+      "name": "Report date macro rejected",
+      "pass": true
+    },
+    {
+      "name": "Report dates cannot escape requested month",
+      "pass": true
+    },
+    {
+      "name": "Report schemas without exact date fields fail closed",
+      "pass": true
+    },
+    {
+      "name": "Provider default date macro blocks ambiguous period",
+      "pass": true
+    },
+    {
+      "name": "Report execution injects exact leap-month bounds",
+      "pass": true
+    },
+    {
+      "name": "Report evidence remains unverified until accounting review",
+      "pass": true
+    },
+    {
+      "name": "Company check rejects a different connection",
+      "pass": true
+    },
+    {
+      "name": "Private Lead inspection snapshot accepted",
+      "pass": true
+    },
+    {
+      "name": "Exact company check retry is idempotent",
+      "pass": true
+    },
+    {
+      "name": "Conflicting company check snapshot rejected",
+      "pass": true
+    },
+    {
+      "name": "Portal reflects independent current-connection confirmation",
+      "pass": true
+    },
+    {
+      "name": "Company confirmation never infers source completeness",
+      "pass": true
+    },
+    {
+      "name": "Client cannot record own company verification",
+      "pass": true
+    },
+    {
+      "name": "New connection does not inherit prior company confirmation",
+      "pass": true
+    },
+    {
+      "name": "Expired connection hides historical company verification",
+      "pass": true
+    },
+    {
+      "name": "Unsupported branch constraints fail closed",
+      "pass": true
+    },
+    {
+      "name": "Reference sibling constraints are not silently ignored",
+      "pass": true
+    },
+    {
+      "name": "Provider redirect is rejected without follow-up request",
+      "pass": true
+    },
+    {
+      "name": "Signup creates Sales inquiry without client registration",
+      "pass": true
+    },
+    {
+      "name": "Agent cannot activate engagement",
+      "pass": true
+    },
+    {
+      "name": "Accepted engagement creates one client and five scoped tasks",
+      "pass": true
+    },
+    {
+      "name": "Activation retries preserve one engagement",
+      "pass": true
+    },
+    {
+      "name": "Agent source request reaches client portal",
+      "pass": true
+    },
+    {
+      "name": "Upload and reply route to independent source receipt items",
+      "pass": true
+    },
+    {
+      "name": "Original CSV available for actual inspection",
+      "pass": true
+    },
+    {
+      "name": "Routine handoffs complete without financial approval",
+      "pass": true
+    },
+    {
+      "name": "Technical pass and handoff do not grant human release",
+      "pass": true
+    },
+    {
+      "name": "Uncertain response keeps durable Pending dispatch after remote publication",
+      "pass": true
+    },
+    {
+      "name": "Uncertain dispatch locks exact version",
+      "pass": true
+    },
+    {
+      "name": "Scheduled reconciliation recovers real receipt",
+      "pass": true
+    },
+    {
+      "name": "Full five-stage journey finishes through actual gates",
+      "pass": true
+    },
+    {
+      "name": "Delivery preserves original Production authorship and one publication",
+      "pass": true
+    },
+    {
+      "name": "Client-originated request reaches Client Success",
+      "pass": true
+    },
+    {
+      "name": "Client sees agent reply and resolved request",
+      "pass": true
+    },
+    {
+      "name": "100 submitted intakes sync across pagination with no invented engagements",
+      "pass": true
+    },
+    {
+      "name": "No LAPS events fabricated",
+      "pass": true
+    }
+  ]
+}
